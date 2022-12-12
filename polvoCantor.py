@@ -89,3 +89,19 @@ xs = [8/9, 1]
 ys = [1/3, 1/3]
 plt.plot(xs, ys, linewidth=10, color='orange')
 plt.show()'''
+
+from tkinter import Tk, Canvas
+
+w, h = 1000, 450
+win = Canvas(Tk(), width= w, height= h)
+
+def Linea(x, y, l):
+    if l > 1:
+        win.create_line(x, y, x + l, y)
+        y = y + 50
+        Linea(x, y, l/3)
+        Linea(x + 2/3*l, y, l/3)
+
+win.pack()
+Linea(10, 10, w - 20)
+win.mainloop()
